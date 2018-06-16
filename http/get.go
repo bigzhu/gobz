@@ -7,8 +7,12 @@ import (
 )
 
 // Get Get请求
-func Get(url string) (data string, err error) {
-	response, err := http.Get(url)
+// 针对一些依赖 cookie 的请求, 可以传入 client
+func Get(url string, client *http.Client) (data string, err error) {
+	if client == nil {
+		client = &http.Client{}
+	}
+	response, err := client.Get(url)
 	if err != nil {
 		err = errors.WithStack(err)
 		return
