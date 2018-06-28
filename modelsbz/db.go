@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/bigzhu/gobz/conf"
+	"github.com/bigzhu/gobz/confbz"
 	"github.com/jinzhu/gorm"
 	// 必须导入
 	_ "github.com/jinzhu/gorm/dialects/postgres"
