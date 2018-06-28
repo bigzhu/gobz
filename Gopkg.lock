@@ -15,9 +15,13 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/bigzhu/follow_center_go"
-  packages = ["conf"]
-  revision = "8129940554d42215392aaccd713d54e84237ea45"
+  name = "github.com/bigzhu/gobz"
+  packages = [
+    "confbz",
+    "httpbz",
+    "inspectbz"
+  ]
+  revision = "e428e266e3cdcfdbbd88866b53fc69b612741679"
 
 [[projects]]
   branch = "master"
@@ -143,6 +147,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "31102a2a17a7bfe9a260670e71be433371c68ada1d9557dbb397a971dd2266da"
+  inputs-digest = "f29705ed942f057aa02b052dc99488110614009b0552626221c69aadb5e7cb0c"
   solver-name = "gps-cdcl"
   solver-version = 1

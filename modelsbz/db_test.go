@@ -3,10 +3,10 @@ package modelsbz
 import (
 	"testing"
 
-	"github.com/bigzhu/gobz/conf"
+	"github.com/bigzhu/gobz/confbz"
 )
 
 func TestGetDBConf(t *testing.T) {
-	dbConf := conf.GetDBConf()
+	dbConf := confbz.GetDBConf()
 	t.Log(dbConf)
 }
