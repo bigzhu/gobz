@@ -1,4 +1,4 @@
-package models
+package modelsbz
 
 // MigrateAll 同步模型
 func MigrateAll() (err error) {

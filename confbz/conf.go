@@ -1,4 +1,4 @@
-package conf
+package confbz
 
 import (
 	"fmt"
@@ -6,10 +6,10 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-func getConf(confName string, v interface{}) {
-	_, err := toml.DecodeFile(fmt.Sprintf("conf/%s.toml", confName), v)
+func getConf(confbzName string, v interface{}) {
+	_, err := toml.DecodeFile(fmt.Sprintf("confbz/%s.toml", confbzName), v)
 	if err != nil {
-		_, err := toml.DecodeFile(fmt.Sprintf("../conf/%s.toml", confName), v)
+		_, err := toml.DecodeFile(fmt.Sprintf("../confbz/%s.toml", confbzName), v)
 		if err != nil {
 			panic(err)
 		}
