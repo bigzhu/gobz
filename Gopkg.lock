@@ -15,16 +15,6 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/bigzhu/gobz"
-  packages = [
-    "confbz",
-    "httpbz",
-    "inspectbz"
-  ]
-  revision = "e428e266e3cdcfdbbd88866b53fc69b612741679"
-
-[[projects]]
-  branch = "master"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
   revision = "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
@@ -147,6 +137,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f29705ed942f057aa02b052dc99488110614009b0552626221c69aadb5e7cb0c"
+  inputs-digest = "9f852642d5746bac052e72e2c775265ed904c7ad300739d2f136579f9a852890"
   solver-name = "gps-cdcl"
   solver-version = 1
