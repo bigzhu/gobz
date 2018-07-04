@@ -7,7 +7,7 @@ type Oauth struct {
 	ClientSecret string `toml:"client_secret"`
 }
 
-// GetOauthConf tumblr 配置
+// GetOauthConf oauth 配置
 func GetOauthConf() (oauth Oauth) {
 	getConf("oauth", &oauth)
 	return
