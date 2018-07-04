@@ -9,8 +9,10 @@ import (
 )
 
 func TestConf(t *testing.T) {
-	// dbConf := confbz.GetDBConf()
-	// t.Log(dbConf)
+	dbConf := confbz.GetDBConf()
+	t.Log(dbConf)
 	telegramConf := confbz.GetTelegramConf()
 	t.Log(telegramConf)
+	oauthConf := confbz.GetOauthConf()
+	t.Log(oauthConf)
 }
