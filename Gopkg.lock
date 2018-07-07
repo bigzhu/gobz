@@ -36,6 +36,12 @@
   version = "v1.1.0"
 
 [[projects]]
+  name = "github.com/gorilla/websocket"
+  packages = ["."]
+  revision = "ea4d1f681babbce9545c9c5f3d5194a789c89f5b"
+  version = "v1.2.0"
+
+[[projects]]
   name = "github.com/jinzhu/gorm"
   packages = [
     ".",
@@ -135,6 +141,12 @@
   version = "v8.18.2"
 
 [[projects]]
+  name = "gopkg.in/olahol/melody.v1"
+  packages = ["."]
+  revision = "d521390733761fe1db13de575c253afd5c743085"
+  version = "v1"
+
+[[projects]]
   name = "gopkg.in/telegram-bot-api.v4"
   packages = ["."]
   revision = "0e0af0c480ea98e982d5f4d45fb39577c6ab1e3e"
@@ -149,6 +161,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8603900a9fd57bf2cdbcfdf93d99d4d694a034219c4772c20b9e2660dc2389ea"
+  inputs-digest = "bdaa8e2e32d9e4ca9dc1173517403a9f5a7625c31cd1697349a0548615b608e6"
   solver-name = "gps-cdcl"
   solver-version = 1
