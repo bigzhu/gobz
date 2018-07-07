@@ -15,7 +15,7 @@ type Register struct {
 
 // Resp 注册的结果如何
 type Resp struct {
-	Result string
+	Result string `json:"result"`
 }
 
 // DoRegister 注册申请的 websocket
