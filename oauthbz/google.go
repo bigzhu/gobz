@@ -17,8 +17,8 @@ import (
 const Google = "google"
 
 // OauthGoogle oauth2
-func OauthGoogle(outc interface{}, redirectURL string, clientID string, clientSecret string) (googleUserInfo OauthInfo, err error) {
-	c := outc.(*gin.Context)
+func OauthGoogle(c *gin.Context, redirectURL string, clientID string, clientSecret string) (googleUserInfo OauthInfo, err error) {
+	// c := outc.(*gin.Context)
 	var googleConf = &oauth2.Config{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
