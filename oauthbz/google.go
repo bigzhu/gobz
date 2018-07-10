@@ -1,4 +1,4 @@
-package ginbz
+package oauthbz
 
 // oauth 登录相关东西. 依赖 gin
 
@@ -13,22 +13,11 @@ import (
 	"golang.org/x/oauth2/google"
 )
 
-// GoogleUserInfo 用户信息
-type GoogleUserInfo struct {
-	ID            string `json:"id"`
-	Email         string `json:"email"`
-	VerifiedEmail bool   `json:"verified_email"`
-	Name          string `json:"name"`
-	GivenName     string `json:"given_name"`
-	FamilyName    string `json:"family_name"`
-	Link          string `json:"link"`
-	Picture       string `json:"picture"`
-	Gender        string `json:"gender"`
-	Locale        string `json:"locale"`
-}
+// Google google 的类型
+const Google = "google"
 
 // OauthGoogle oauth2
-func OauthGoogle(outc interface{}, redirectURL string, clientID string, clientSecret string) (googleUserInfo GoogleUserInfo, err error) {
+func OauthGoogle(outc interface{}, redirectURL string, clientID string, clientSecret string) (googleUserInfo OauthInfo, err error) {
 	c := outc.(*gin.Context)
 	var googleConf = &oauth2.Config{
 		ClientID:     clientID,
@@ -54,7 +43,8 @@ func OauthGoogle(outc interface{}, redirectURL string, clientID string, clientSe
 	if err != nil {
 		return
 	}
-	log.Println(data)
 	err = json.Unmarshal([]byte(data), &googleUserInfo)
+	googleUserInfo.Type = Google
+	log.Println(googleUserInfo)
 	return
 }
