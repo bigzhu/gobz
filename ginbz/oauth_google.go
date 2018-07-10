@@ -1,7 +1,10 @@
 package ginbz
 
+// oauth 登录相关东西. 依赖 gin
+
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/bigzhu/gobz/httpbz"
@@ -12,7 +15,16 @@ import (
 
 // GoogleUserInfo 用户信息
 type GoogleUserInfo struct {
-	Email string `json:"email"`
+	ID            string `json:"id"`
+	Email         string `json:"email"`
+	VerifiedEmail bool   `json:"verified_email"`
+	Name          string `json:"name"`
+	GivenName     string `json:"given_name"`
+	FamilyName    string `json:"family_name"`
+	Link          string `json:"link"`
+	Picture       string `json:"picture"`
+	Gender        string `json:"gender"`
+	Locale        string `json:"locale"`
 }
 
 // OauthGoogle oauth2
@@ -42,6 +54,7 @@ func OauthGoogle(outc interface{}, redirectURL string, clientID string, clientSe
 	if err != nil {
 		return
 	}
+	log.Println(data)
 	err = json.Unmarshal([]byte(data), &googleUserInfo)
 	return
 }
