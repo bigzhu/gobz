@@ -30,7 +30,7 @@ func DoRegister(s *melody.Session, msg []byte) {
 	}
 	s.Set(register.Key, "bigzhu")
 	log.Println("register new websocket", s.Request.URL.Path, "key=", register.Key)
-	result, _ := json.Marshal(Resp{Result: "success"})
-	s.Write(result)
+	// result, _ := json.Marshal(Resp{Result: "success"})
+	// s.Write(result)
 	return
 }
