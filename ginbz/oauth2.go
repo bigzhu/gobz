@@ -24,7 +24,7 @@ func Google(c *gin.Context) {
 		return
 	}
 	session := sessions.Default(c)
-	session.Set("user", oauthInfo.Email)
+	session.Set("user", oauthInfo.ID)
 	err = session.Save()
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
