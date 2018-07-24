@@ -18,6 +18,7 @@ func Google(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
 		return
 	}
+	oauthInfo.Type = "google"
 	err = modelsbz.DB.Where("email=?", oauthInfo.Email).FirstOrCreate(&oauthInfo).Error
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
