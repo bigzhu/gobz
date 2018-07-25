@@ -33,3 +33,13 @@ func Google(c *gin.Context) {
 	}
 	c.Redirect(http.StatusFound, "/")
 }
+
+// OauthInfo 获取用户信息
+func OauthInfo(c *gin.Context) {
+	userID := getUserID(c)
+	oauth := oauthbz.OauthInfo{OID: userID}
+	modelsbz.DB.
+		Where(oauth).
+		Find(&oauth)
+	c.JSON(http.StatusOK, oauth)
+}
