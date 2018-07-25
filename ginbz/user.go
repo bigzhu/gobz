@@ -10,7 +10,7 @@ import (
 // Logout 退出
 func Logout(c *gin.Context) {
 	session := sessions.Default(c)
-	session.Set("user", "")
+	session.Delete("user")
 	err := session.Save()
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
