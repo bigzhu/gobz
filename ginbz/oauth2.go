@@ -39,7 +39,7 @@ func OauthInfo(c *gin.Context) {
 	userID := getUserID(c)
 	oauth := oauthbz.OauthInfo{OID: userID}
 	modelsbz.DB.
-		Where(oauth).
+		Where("o_id=?", userID).
 		Find(&oauth)
 	c.JSON(http.StatusOK, oauth)
 }
