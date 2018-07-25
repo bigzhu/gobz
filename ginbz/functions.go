@@ -1,14 +1,15 @@
 package ginbz
 
 import (
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
 func getUserID(c *gin.Context) uint {
-	userID, exists := c.Get("userID")
-	if !exists {
-		// c.JSON(http.StatusUnauthorized, gin.H{ERROR: "未正确取到登录的用户ID"})
-		return 0
+	session := sessions.Default(c)
+	userID := session.Get("user")
+	if userID != nil {
+		return userID.(uint)
 	}
-	return userID.(uint)
+	return 0
 }
