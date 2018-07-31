@@ -2,19 +2,23 @@ package confbz
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/BurntSushi/toml"
 )
 
 func getConf(confbzName string, v interface{}) {
-	_, err := toml.DecodeFile(fmt.Sprintf("./conf/%s.toml", confbzName), v)
-	if err != nil {
-		log.Println(err)
-		_, err := toml.DecodeFile(fmt.Sprintf("../conf/%s.toml", confbzName), v)
-		if err != nil {
-			panic(err)
+	confPath := fmt.Sprintf("conf/%s.toml", confbzName)
+	var err error
+	// 尝试向上找10级
+	for i := 0; i < 10; i++ {
+		_, err = toml.DecodeFile(confPath, v)
+		if err == nil {
+			return
 		}
+		confPath = "../" + confPath
+	}
+	if err != nil {
+		panic(err)
 	}
 	return
 }
