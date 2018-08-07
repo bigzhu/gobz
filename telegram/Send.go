@@ -12,8 +12,8 @@ func SendToChannel(msg string) (err error) {
 
 // SendToUser 发送给某个用户
 // 要拿到 chatID
-func SendToUser(msg string) (err error) {
-	newMsg := tgbotapi.NewMessage(429086201, msg)
+func SendToUser(msg string, chatID int64) (err error) {
+	newMsg := tgbotapi.NewMessage(chatID, msg)
 	newMsg.ParseMode = tgbotapi.ModeMarkdown
 	_, err = Bzbot.Send(newMsg)
 	return
