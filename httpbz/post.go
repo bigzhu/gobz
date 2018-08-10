@@ -2,7 +2,6 @@ package httpbz
 
 import (
 	"bytes"
-	"log"
 	"net/http"
 
 	"github.com/pkg/errors"
@@ -17,7 +16,6 @@ func Post(url string, jsonData string, client *http.Client) (data string, err er
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json;charset=utf-8")
 	response, err := client.Do(req)
-	log.Println(response.Status)
 	defer closeBody(response.Body)
 	if err != nil {
 		err = errors.WithStack(err)
