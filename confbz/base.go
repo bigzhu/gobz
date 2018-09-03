@@ -6,7 +6,8 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-func getConf(confbzName string, v interface{}) {
+// GetConf 获取配置文件
+func GetConf(confbzName string, v interface{}) {
 	confPath := fmt.Sprintf("conf/%s.toml", confbzName)
 	var err error
 	// 尝试向上找10级

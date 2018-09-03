@@ -10,6 +10,6 @@ type TwitterConf struct {
 
 // GetTwitterConf 获取数据库连接配置
 func GetTwitterConf() (twitterConf TwitterConf) {
-	getConf("twitter", &twitterConf)
+	GetConf("twitter", &twitterConf)
 	return
 }

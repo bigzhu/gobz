@@ -11,7 +11,7 @@ type DBConf struct {
 
 // GetDBConf 获取数据库连接配置
 func GetDBConf() (dbConf DBConf) {
-	getConf("db", &dbConf)
+	GetConf("db", &dbConf)
 	if dbConf.Port == "" {
 		dbConf.Port = "5432"
 	}

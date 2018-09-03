@@ -9,6 +9,6 @@ type Oauth struct {
 
 // GetOauthConf oauth 配置
 func GetOauthConf() (oauth Oauth) {
-	getConf("oauth", &oauth)
+	GetConf("oauth", &oauth)
 	return
 }
