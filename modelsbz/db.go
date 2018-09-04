@@ -6,6 +6,7 @@ import (
 
 	"github.com/bigzhu/gobz/confbz"
 	"github.com/jinzhu/gorm"
+
 	// 必须导入
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
@@ -14,11 +15,6 @@ import (
 var DB *gorm.DB
 
 func init() {
-	var err error
-	DB, err = GetDB()
-	if err != nil {
-		panic(err)
-	}
 }
 
 // TX my tx
@@ -27,6 +23,15 @@ type TX struct {
 	*gorm.DB
 	// fired 标记事务是否已经commit或rollback
 	fired bool
+}
+
+// Connect 连接数据库
+func Connect() {
+	var err error
+	DB, err = GetDB()
+	if err != nil {
+		panic(err)
+	}
 }
 
 // Rollback 更稳定而流畅的回滚

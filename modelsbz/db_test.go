@@ -16,6 +16,7 @@ func TestGetDBConf(t *testing.T) {
 	var result Result
 	dbConf := confbz.GetDBConf()
 	t.Log(dbConf)
+	Connect()
 	sql := `
 	select 4 as count
 	`
