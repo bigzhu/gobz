@@ -8,7 +8,7 @@ import (
 
 // Get Get请求
 // 针对一些依赖 cookie 的请求, 可以传入 client
-func Get(url string, client *http.Client) (data string, err error) {
+func Get(url string, client *http.Client) (data string, statusCode int, err error) {
 	if client == nil {
 		client = &http.Client{}
 	}
@@ -17,6 +17,7 @@ func Get(url string, client *http.Client) (data string, err error) {
 		err = errors.WithStack(err)
 		return
 	}
+	statusCode = response.StatusCode
 	defer closeBody(response.Body)
 	data, err = readBody(response.Body)
 	return
