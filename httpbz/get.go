@@ -17,8 +17,8 @@ func Get(url string, client *http.Client) (data string, statusCode int, err erro
 		err = errors.WithStack(err)
 		return
 	}
-	statusCode = response.StatusCode
 	defer closeBody(response.Body)
+	statusCode = response.StatusCode
 	data, err = readBody(response.Body)
 	return
 }

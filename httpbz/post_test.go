@@ -10,7 +10,7 @@ func TestPost(t *testing.T) {
 		"spendingPassword": ""
 		}
 	`
-	data, err := Post("http://cardano.lorstone.com/api/v1/addresses", params, nil)
+	data, _, err := Post("http://cardano.lorstone.com/api/v1/addresses", params, nil)
 	if err != nil {
 		t.Fatal(err)
 	}

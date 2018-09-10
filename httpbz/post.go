@@ -8,7 +8,7 @@ import (
 )
 
 // Post 包装一下
-func Post(url string, jsonData string, client *http.Client) (data string, err error) {
+func Post(url string, jsonData string, client *http.Client) (data string, statusCode int, err error) {
 	if client == nil {
 		client = &http.Client{}
 	}
@@ -21,6 +21,7 @@ func Post(url string, jsonData string, client *http.Client) (data string, err er
 		return
 	}
 	defer closeBody(response.Body)
+	statusCode = response.StatusCode
 	data, err = readBody(response.Body)
 	return
 }
