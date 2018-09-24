@@ -39,7 +39,7 @@ func OauthGoogle(c *gin.Context, redirectURL string, clientID string, clientSecr
 		return
 	}
 
-	data, err := httpbz.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+token.AccessToken, nil)
+	data, _, err := httpbz.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+token.AccessToken, nil)
 	if err != nil {
 		return
 	}
