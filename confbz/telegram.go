@@ -4,6 +4,7 @@ package confbz
 type TelegramConf struct {
 	Token     string `toml:"token"`
 	ChannelID string `toml:"channel_id"`
+	ChatID    int64  `toml:"chat_id"`
 }
 
 // GetTelegramConf telegram 配置

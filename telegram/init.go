@@ -1,6 +1,8 @@
 package telegram
 
 import (
+	"log"
+
 	"github.com/bigzhu/gobz/confbz"
 	"github.com/pkg/errors"
 	tgbotapi "gopkg.in/telegram-bot-api.v4"
@@ -16,6 +18,7 @@ func init() {
 	Bzbot, err = tgbotapi.NewBotAPI(telegramConf.Token)
 	if err != nil {
 		err = errors.WithStack(err)
+		log.Printf("%+v", err)
 		return
 	}
 }
