@@ -1,4 +1,4 @@
-package modelsbz
+package jsonbz
 
 import (
 	"encoding/json"
