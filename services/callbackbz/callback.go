@@ -16,7 +16,7 @@ const (
 	//Success 成功
 	Success = "Success"
 	//Failure callback 失败
-	ailure = "Failure"
+	Failure = "Failure"
 	// NoNeed 不再需要处理, 回调那里
 	NoNeed = "NoNeed"
 )
