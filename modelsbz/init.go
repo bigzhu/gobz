@@ -1,6 +1,6 @@
 package modelsbz
 
-import "github.com/bigzhu/gobz/service/callback"
+import "github.com/bigzhu/gobz/services/callback"
 
 // MigrateAll 同步模型
 func MigrateAll() (err error) {
