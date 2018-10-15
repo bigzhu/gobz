@@ -6,8 +6,8 @@ import (
 	"github.com/bigzhu/gobz/modelsbz"
 )
 
-// Callback 记录 callback 状态
-type CallbackM struct {
+// CallbackModel 记录 callback 状态
+type CallbackModel struct {
 	ID        int `gorm:"primary_key"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
@@ -28,6 +28,17 @@ func GetCallbackByTypeAndKey(key string, callbackType string) (callback Callback
 	err = modelsbz.DB.
 		Where("key = ? and type=?", key, callbackType).
 		First(&callback).
+		Error
+	return
+}
+
+// GetFailureIntervalCallBacks 查出失败的回调记录
+func GetFailureIntervalCallBacks() (callbacks []Callback, err error) {
+	err = odelsbz.DB.
+		Where("status = ? ", libs.Failure).
+		// 次数为n, 2的n次方为秒, 间隔这么长时间再调用
+		Where("(updated_at + 2^count * interval '1 second') < now()").
+		Find(&callBacks).
 		Error
 	return
 }

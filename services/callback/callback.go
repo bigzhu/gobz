@@ -24,7 +24,7 @@ const (
 // Callback 执行回调, 并保存结果. 必须包含以下两个参数
 // callback.URL 地址
 // callback.Request 请求参数
-func Callback(callback CallbackM) {
+func Callback(callback CallbackModel) {
 	response, statusCode, err := httpbz.Post(callback.URL, callback.Request, nil)
 	if err != nil {
 		callback.ErrorInfo = err.Error()
@@ -54,4 +54,12 @@ func Callback(callback CallbackM) {
 		log.Printf("%+v", err)
 	}
 	return
+}
+
+// RunFailureCallbacks 回调所有的之前失败的回调记录
+func RunFailureCallbacks() (err error) {
+	callbacks, err := GetFailureIntervalCallBacks()
+	for _, callback := range callbacks {
+		Callback(callback)
+	}
 }
