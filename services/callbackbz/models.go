@@ -24,7 +24,7 @@ type CallbackModel struct {
 }
 
 // GetCallbackByTypeAndKey 查询回调记录
-func GetCallbackByTypeAndKey(key string, callbackType string) (callback Callback, err error) {
+func GetCallbackByTypeAndKey(key string, callbackType string) (callback CallbackModel, err error) {
 	err = modelsbz.DB.
 		Where("key = ? and type=?", key, callbackType).
 		First(&callback).
@@ -33,12 +33,12 @@ func GetCallbackByTypeAndKey(key string, callbackType string) (callback Callback
 }
 
 // GetFailureIntervalCallBacks 查出失败的回调记录
-func GetFailureIntervalCallBacks() (callbacks []Callback, err error) {
-	err = odelsbz.DB.
-		Where("status = ? ", libs.Failure).
+func GetFailureIntervalCallBacks() (callbacks []CallbackModel, err error) {
+	err = modelsbz.DB.
+		Where("status = ? ", Failure).
 		// 次数为n, 2的n次方为秒, 间隔这么长时间再调用
 		Where("(updated_at + 2^count * interval '1 second') < now()").
-		Find(&callBacks).
+		Find(&callbacks).
 		Error
 	return
 }

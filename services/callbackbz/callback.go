@@ -16,7 +16,7 @@ const (
 	//Success 成功
 	Success = "Success"
 	//Failure callback 失败
-	Failure = "Failure"
+	ailure = "Failure"
 	// NoNeed 不再需要处理, 回调那里
 	NoNeed = "NoNeed"
 )
@@ -59,7 +59,11 @@ func Callback(callback CallbackModel) {
 // RunFailureCallbacks 回调所有的之前失败的回调记录
 func RunFailureCallbacks() (err error) {
 	callbacks, err := GetFailureIntervalCallBacks()
+	if err != nil {
+		return
+	}
 	for _, callback := range callbacks {
 		Callback(callback)
 	}
+	return
 }
