@@ -59,14 +59,14 @@ func main() {
 	pssh.Write(PSSmessage)
 	hashed := pssh.Sum(nil)
 
-	signature, err := rsa.SignPSS(rand.Reader, miryanPrivateKey, newhash, hashed, &opts)
+	signaturee, err := rsa.SignPSS(rand.Reader, miryanPrivateKey, newhash, hashed, &opts)
 
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("PSS Signature : %x\n", signature)
+	fmt.Printf("PSS Signature : %x\n", signaturee)
 
 	// Decrypt Message
 	plainText, err := rsa.DecryptOAEP(hash, rand.Reader, raulPrivateKey, ciphertext, label)
@@ -79,7 +79,7 @@ func main() {
 	fmt.Printf("OAEP decrypted [%x] to \n[%s]\n", ciphertext, plainText)
 
 	//Verify Signature
-	err = rsa.VerifyPSS(miryanPublicKey, newhash, hashed, signature, &opts)
+	err = rsa.VerifyPSS(miryanPublicKey, newhash, hashed, signaturee, &opts)
 
 	if err != nil {
 		fmt.Println("Who are U? Verify Signature failed")

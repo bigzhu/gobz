@@ -12,14 +12,14 @@ import (
 
 // Verify 验证签名
 // plainText 内容
-// signatur 签名
+// signature 签名
 // publicKey 公钥
-func Verify(plainText string, signatur string, publicKey string) (err error) {
+func Verify(plainText string, signature string, publicKey string) (err error) {
 	parsedPublicKey, err := getPublicKey(publicKey)
 	if err != nil {
 		return
 	}
-	signBytes, err := base64.StdEncoding.DecodeString(signatur)
+	signBytes, err := base64.StdEncoding.DecodeString(signature)
 	if err != nil {
 		err = errors.Wrap(err, "base64.StdEncoding.DecodeString signBase64")
 		return

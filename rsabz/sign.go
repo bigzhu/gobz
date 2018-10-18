@@ -13,7 +13,7 @@ import (
 )
 
 // Sign 生成签名
-func Sign(plainText string, privateKey string) (signatur string, err error) {
+func Sign(plainText string, privateKey string) (signaturee string, err error) {
 	p := []byte(plainText)
 	hash := sha256.New()
 	hash.Write(p)
@@ -25,7 +25,7 @@ func Sign(plainText string, privateKey string) (signatur string, err error) {
 	if err != nil {
 		return
 	}
-	signatur = base64.StdEncoding.EncodeToString(s)
+	signature = base64.StdEncoding.EncodeToString(s)
 	return
 }
 
