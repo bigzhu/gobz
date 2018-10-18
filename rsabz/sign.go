@@ -13,7 +13,7 @@ import (
 )
 
 // Sign 生成签名
-func Sign(plainText string, privateKey string) (signaturee string, err error) {
+func Sign(plainText string, privateKey string) (signature string, err error) {
 	p := []byte(plainText)
 	hash := sha256.New()
 	hash.Write(p)
@@ -33,7 +33,7 @@ func getPemBytes(key string) (b []byte, err error) {
 	p := []byte(key)
 	thePem, _ := pem.Decode(p)
 	if thePem == nil {
-		return nil, errors.New("RSA PRIVATE KEY not found")
+		return nil, errors.New("RSA KEY not found")
 	}
 	if thePem.Type != "RSA PRIVATE KEY" && thePem.Type != "PUBLIC KEY" && thePem.Type != "RSA PUBLIC KEY" {
 		return nil, errors.Errorf("类型不是有效的RSA KEY: %v", thePem.Type)
