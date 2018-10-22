@@ -1,4 +1,4 @@
-package inspectbz
+package functionbz
 
 import "testing"
 
