@@ -1,0 +1,5 @@
+tag = "【DABank】"
+userid = "123"
+password = "123"
+codetype = "utf8"
+encodeway = "base64"

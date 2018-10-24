@@ -8,16 +8,17 @@ import (
 )
 
 // PostForm 包装一下
-func PostForm(theURL string, form url.Values, client *http.Client) (data string, err error) {
+func PostForm(theURL string, form url.Values, client *http.Client) (data string, statusCode int, err error) {
 	if client == nil {
 		client = &http.Client{}
 	}
 	response, err := client.PostForm(theURL, form)
-	defer closeBody(response.Body)
 	if err != nil {
 		err = errors.WithStack(err)
 		return
 	}
+	defer closeBody(response.Body)
+	statusCode = response.StatusCode
 	data, err = readBody(response.Body)
 	return
 }
