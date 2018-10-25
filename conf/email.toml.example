@@ -1,0 +1,5 @@
+user = "oeohomos@163.com"
+password = "abc123456"
+host = "smtp.163.com"
+port = 25
+assetPaths = ["/home/jre/Documents/", "b"]
