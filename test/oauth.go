@@ -2,7 +2,7 @@ package test
 
 import (
 	"github.com/bigzhu/gobz/confbz"
-	"github.com/bigzhu/gobz/oauthbz"
+	"github.com/bigzhu/gobz/services/oauthbz"
 	"github.com/gin-gonic/gin"
 )
 

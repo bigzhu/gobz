@@ -10,7 +10,7 @@ import (
 
 var (
 	from        = Address{Address: "oeohomos@163.com", Name: "jyw"}
-	to          = []Address{{Address: "2256662859@qq.com", Name: "Mr jyw"}}
+	to          = []Address{{Address: "vermiliondun@gmail.com", Name: "Mr jyw"}}
 	replyTo     = Address{Address: "oeohomos@163.com", Name: "jyw"}
 	attachments = []Attachment{
 		{FileName: "/home/jre/Documents/challenge.png"},
