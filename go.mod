@@ -13,11 +13,14 @@ require (
 	github.com/fatih/motion v0.0.0-20180408211639-218875ebe238 // indirect
 	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7 // indirect
 	github.com/gin-gonic/gin v1.3.0
+	github.com/go-gomail/gomail v0.0.0-20160411212932-81ebce5c23df // indirect
 	github.com/golang/protobuf v1.2.0 // indirect
 	github.com/google/shlex v0.0.0-20150127133951-6f45313302b9 // indirect
 	github.com/gorilla/websocket v1.4.0 // indirect
+	github.com/gosimple/slug v1.3.0 // indirect
 	github.com/jinzhu/gorm v1.9.1
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
+	github.com/jinzhu/now v0.0.0-20180511015916-ed742868f2ae // indirect
 	github.com/josharian/impl v0.0.0-20180228163738-3d0f908298c4 // indirect
 	github.com/jstemmer/gotags v1.4.1 // indirect
 	github.com/kisielk/errcheck v1.1.0 // indirect
@@ -26,10 +29,16 @@ require (
 	github.com/lib/pq v1.0.0 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect
 	github.com/mdempsky/gocode v0.0.0-20181016185935-22f3bf7a9256 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.1 // indirect
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
 	github.com/peterh/liner v1.1.0 // indirect
 	github.com/pkg/errors v0.8.0
+	github.com/qor/assetfs v0.0.0-20170713023933-ff57fdc13a14 // indirect
+	github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac // indirect
+	github.com/qor/qor v0.0.0-20180607095400-a9b667cbbf18 // indirect
+	github.com/qor/render v0.0.0-20171201033449-63566e46f01b // indirect
+	github.com/rainycape/unidecode v0.0.0-20150907023854-cb7f23ec59be // indirect
 	github.com/rogpeppe/godef v1.0.0 // indirect
 	github.com/sirupsen/logrus v1.1.1 // indirect
 	github.com/spf13/cobra v0.0.3 // indirect

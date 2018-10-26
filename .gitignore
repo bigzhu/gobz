@@ -16,3 +16,6 @@ gobz
 *.out
 vendor
 tmp
+
+# Editors
+.idea/
