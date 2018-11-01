@@ -19,7 +19,6 @@ func SendToChannel(msg string, channelID string) (err error) {
 // SendToUser 发送给某个用户
 // 要拿到 chatID
 func SendToUser(msg string, chatID int64) (err error) {
-	log.Println("SendToUser")
 	newMsg := tgbotapi.NewMessage(chatID, msg)
 	newMsg.ParseMode = tgbotapi.ModeMarkdown
 	_, err = Bzbot.Send(newMsg)
@@ -29,7 +28,6 @@ func SendToUser(msg string, chatID int64) (err error) {
 // Send 默认发送
 // 优先看是否配置了 chatID, 没有再找 channelID
 func Send(msg string) (err error) {
-	log.Println("Send")
 	switch {
 	case telegramConf.ChatID != 0:
 		err = SendToUser(msg, telegramConf.ChatID)
