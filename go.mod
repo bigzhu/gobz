@@ -45,6 +45,7 @@ require (
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516 // indirect
+	github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459
 	github.com/zmb3/gogetdoc v0.0.0-20181009153131-0d07153cccef // indirect
 	golang.org/x/arch v0.0.0-20180920145803-b19384d3c130 // indirect
 	golang.org/x/lint v0.0.0-20181011164241-5906bd5c48cd // indirect

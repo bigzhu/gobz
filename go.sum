@@ -104,6 +104,8 @@ github.com/technoweenie/multipartstreamer v1.0.1/go.mod h1:jNVxdtShOxzAsukZwTSw6
 github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516 h1:tYsnVMTj4SrtarTPEquseLh3QgR7mEY3WSPW7x2c9hk=
 github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
 github.com/ugorji/go/codec v0.0.0-20181022190402-e5e69e061d4f/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
+github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459 h1:VMA8aoW32odpGNXkb2Z0oICa7ayWMiueU7trI9qD8qg=
+github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459/go.mod h1:B+TIdkhcQIzSodgDiz0oVwgEcg0RP0YofIP+Ujipypg=
 github.com/zmb3/gogetdoc v0.0.0-20181009153131-0d07153cccef h1:VNUds7sGwqeJD/u17Uu0W7zHub/hqtQZDVHNzYel4hI=
 github.com/zmb3/gogetdoc v0.0.0-20181009153131-0d07153cccef/go.mod h1:dXs/wcuJhj4bP1Uw7QavVUdsGlJdgzpfmV2b3PdtGBI=
 golang.org/x/arch v0.0.0-20180920145803-b19384d3c130 h1:Vsc61gop4hfHdzQNolo6Fi/sw7TnJ2yl3ZR4i7bYirs=
