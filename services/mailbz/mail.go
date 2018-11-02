@@ -27,18 +27,22 @@ const assetFSNameSpace = "mailer"
 
 // Send 功能最全的邮件发送方式, 但是易错, 比如: 发送HTML时Email.Text字段必须为空,使用模板时Email.Text和Email.HTML都必须为空.
 func Send(email Email, templates ...Template) (err error) {
-	mailer, err := newMailerByConf()
+	conf := confbz.GetEmailConf()
+	mailer, err := newMailer(conf.Host, conf.Port, conf.User, conf.Password, conf.AssetPaths)
 	if err != nil {
 		return
+	}
+	if email.From == nil {
+		email.From = &Address{Address: conf.User}
 	}
 	err = mailer.Send(email, templates...)
 	return
 }
 
 // SendText 发送纯文本
-func SendText(from Address, to []Address, subject, content string, attachments ...Attachment) (err error) {
+func SendText(replyTo *Address, to []Address, subject, content string, attachments ...Attachment) (err error) {
 	return Send(Email{
-		From:        &from,
+		ReplyTo:     replyTo,
 		TO:          to,
 		Subject:     subject,
 		Text:        content,
@@ -47,9 +51,9 @@ func SendText(from Address, to []Address, subject, content string, attachments .
 }
 
 // SendHTML 发送HTML内容
-func SendHTML(from Address, to []Address, subject, content string, attachments ...Attachment) (err error) {
+func SendHTML(replyTo *Address, to []Address, subject, content string, attachments ...Attachment) (err error) {
 	return Send(Email{
-		From:        &from,
+		ReplyTo:     replyTo,
 		TO:          to,
 		Subject:     subject,
 		HTML:        content,
@@ -65,9 +69,9 @@ func SendHTML(from Address, to []Address, subject, content string, attachments .
 // 内容格式:
 //		与html/template包要求的格式一致.
 //		"layout模板文件"的内容需要包含`{{ yield }}`, 才能把"内容模板文件"包含进去.
-func SendTemplate(from Address, to []Address, subject string, templates []Template, attachments ...Attachment) (err error) {
+func SendTemplate(replyTo *Address, to []Address, subject string, templates []Template, attachments ...Attachment) (err error) {
 	return Send(Email{
-		From:        &from,
+		ReplyTo:     replyTo,
 		TO:          to,
 		Subject:     subject,
 		Attachments: attachments,

@@ -9,9 +9,20 @@ type HengTongConf struct {
 	EncodeWay string `toml:"encodeway"` // 编码方式
 }
 
+type YunpPianConf struct {
+	Tag string `toml:"tag"` 	  // 模板标签
+	ApiKey string `toml:"apikey"` // 用户唯一标识
+	TplID string `toml:"tplID"`   // 模板ID
+}
+
 // GetHengTongConf telegram 配置
 func GetHengTongConf() (conf HengTongConf) {
 	GetConf("hengtong", &conf)
+	return
+}
+
+func GetYunPianConf() (conf YunpPianConf) {
+	GetConf("yunpian", &conf)
 	return
 }
 

@@ -19,14 +19,14 @@ var (
 )
 
 func TestSendText(t *testing.T) {
-	err := SendText(from, to, "测试text邮件", "text email")
+	err := SendText(&from, to, "测试text邮件", "text email")
 	if err != nil {
 		t.Fatal(err)
 	}
 }
 
 func TestSendHTML(t *testing.T) {
-	err := SendHTML(from, to, "测试html邮件", "html email <img src='http://img1.imgtn.bdimg.com/it/u=3873040750,1105020127&fm=26&gp=0.jpg'/>")
+	err := SendHTML(&from, to, "测试html邮件", "html email <img src='http://img1.imgtn.bdimg.com/it/u=3873040750,1105020127&fm=26&gp=0.jpg'/>")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func TestSendHTML(t *testing.T) {
 
 func TestSendWithAttachments(t *testing.T) {
 	err := SendHTML(
-		from,
+		&from,
 		to,
 		"测试html邮件",
 		"html email <img src='http://img1.imgtn.bdimg.com/it/u=3873040750,1105020127&fm=26&gp=0.jpg'/>",
@@ -53,7 +53,7 @@ func TestSendWithTemplate(t *testing.T) {
 		"测试模板邮件", "内容由模板生成",
 	}
 	err := SendTemplate(
-		from,
+		&from,
 		to,
 		"测试模板邮件(内容不应该是空的)",
 		[]Template{{Name: "hello", Layout: "application", Data: data}})

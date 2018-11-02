@@ -21,6 +21,7 @@ require (
 	github.com/gorilla/sessions v1.1.3 // indirect
 	github.com/gorilla/websocket v1.4.0 // indirect
 	github.com/gosimple/slug v1.3.0 // indirect
+	github.com/jinzhu/configor v0.0.0-20180614024415-4edaf76fe188 // indirect
 	github.com/jinzhu/gorm v1.9.1
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/jinzhu/now v0.0.0-20180511015916-ed742868f2ae // indirect
@@ -48,6 +49,7 @@ require (
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516 // indirect
+	github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459
 	github.com/zmb3/gogetdoc v0.0.0-20181009153131-0d07153cccef // indirect
 	golang.org/x/arch v0.0.0-20180920145803-b19384d3c130 // indirect
 	golang.org/x/lint v0.0.0-20181011164241-5906bd5c48cd // indirect
