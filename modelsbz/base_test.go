@@ -1,6 +1,7 @@
 package modelsbz
 
 import (
+	"log"
 	"testing"
 )
 
@@ -21,6 +22,11 @@ func TestBase_GetFirst(t *testing.T) {
 		&Base{},
 		&Son{},
 	)
-	GetFirst(&Base{ID: 1})
-	GetFirst(&Son{SonName: "kakazhu"})
+	GetFirst(&Base{ID: 1}, &Base{})
+	son := Son{SonName: "kakazhu"}
+	err := GetFirst(&son, &son)
+	if err != nil {
+		t.Fatal(err)
+	}
+	log.Println(son)
 }
