@@ -15,3 +15,9 @@ type Base struct {
 func (base *Base) GetInstance() (result interface{}) {
 	return base
 }
+
+//GetFirst 条件就作为结果返回
+func (base *Base) GetFirst(i interface{}) (err error) {
+	err = GetFirst(i.(Model), i)
+	return
+}
