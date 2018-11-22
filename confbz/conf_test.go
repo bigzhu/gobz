@@ -4,15 +4,13 @@ package confbz
 
 import (
 	"testing"
-
-	"github.com/bigzhu/gobz/confbz"
 )
 
 func TestConf(t *testing.T) {
-	dbConf := confbz.GetDBConf()
+	dbConf := GetDBConf()
 	t.Log(dbConf)
-	telegramConf := confbz.GetTelegramConf()
+	telegramConf := GetTelegramConf()
 	t.Log(telegramConf)
-	oauthConf := confbz.GetOauthConf()
+	oauthConf := GetOauthConf()
 	t.Log(oauthConf)
 }
