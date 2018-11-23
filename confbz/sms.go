@@ -9,10 +9,11 @@ type HengTongConf struct {
 	EncodeWay string `toml:"encodeway"` // 编码方式
 }
 
-type YunpPianConf struct {
-	Tag string `toml:"tag"` 	  // 模板标签
-	ApiKey string `toml:"apikey"` // 用户唯一标识
-	TplID string `toml:"tplID"`   // 模板ID
+// YunPianConf 云片的配置
+type YunPianConf struct {
+	Tag    string `toml:"tag"`     // 模板标签
+	APIKey string `toml:"api_key"` // 用户唯一标识
+	TplID  string `toml:"tplID"`   // 模板ID
 }
 
 // GetHengTongConf telegram 配置
@@ -21,7 +22,8 @@ func GetHengTongConf() (conf HengTongConf) {
 	return
 }
 
-func GetYunPianConf() (conf YunpPianConf) {
+// GetYunPianConf 获取云片配置
+func GetYunPianConf() (conf YunPianConf) {
 	GetConf("yunpian", &conf)
 	return
 }
