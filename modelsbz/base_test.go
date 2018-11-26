@@ -35,7 +35,7 @@ func TestBase_GetFirst(t *testing.T) {
 func TestSelf_GetFirst(t *testing.T) {
 	Connect()
 	base := Base{ID: 1}
-	base.GetFirst(&base)
+	base.Get(&base)
 	log.Println(base)
 	son := Son{SonName: "kakazhu"}
 	son.GetFirst(&son)

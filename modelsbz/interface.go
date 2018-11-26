@@ -1,6 +1,8 @@
 package modelsbz
 
-import "github.com/jinzhu/gorm"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 // Model 哦
 type Model interface {
@@ -17,5 +19,12 @@ func GetFirst(model Model, result interface{}) (err error) {
 		return
 	}
 	result = i
+	return
+}
+
+// DeleteOne 删除一条
+func DeleteOne(model Model) (err error) {
+	// tx := DB.
+	// i := model.GetInstance()
 	return
 }

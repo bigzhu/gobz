@@ -1,8 +1,12 @@
 package confbz
 
-import "testing"
+import (
+	"log"
+	"testing"
+)
 
 func Test_getRunPath(t *testing.T) {
+	log.Println()
 	tests := []struct {
 		name     string
 		wantPath string

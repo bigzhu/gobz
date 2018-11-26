@@ -25,6 +25,7 @@ const (
 // callback.URL 地址
 // callback.Request 请求参数
 func Callback(callback CallbackModel) {
+	log
 	response, statusCode, err := httpbz.Post(callback.URL, callback.Request, nil)
 	if err != nil {
 		callback.ErrorInfo = err.Error()

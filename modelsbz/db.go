@@ -98,6 +98,7 @@ func GetTx() *TX {
 
 //GetDB connect to postgresql
 func GetDB() (*gorm.DB, error) {
+	log.Println()
 	dbConf := confbz.GetDBConf()
 	str := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", dbConf.Host, dbConf.Port, dbConf.User, dbConf.DBName, dbConf.Password)
 	DB, err := gorm.Open("postgres", str)
