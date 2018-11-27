@@ -2,7 +2,7 @@ package oauthbz
 
 // OauthInfo Oauth 的用户信息
 type OauthInfo struct {
-	OID           uint   `gorm:"primary_key" json:"oid"`
+	OID           int    `gorm:"primary_key" json:"oid"`
 	ID            string `json:"id" gorm:""`
 	Email         string `json:"email" gorm:"not null"`
 	VerifiedEmail bool   `json:"verified_email" gorm:"verified_email"`
