@@ -38,6 +38,6 @@ func TestSelf_GetFirst(t *testing.T) {
 	base.Get(&base)
 	log.Println(base)
 	son := Son{SonName: "kakazhu"}
-	son.GetFirst(&son)
+	son.Get(&son)
 	log.Println(son)
 }

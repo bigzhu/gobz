@@ -3,8 +3,22 @@ package main
 import (
 	"log"
 
+	_ "github.com/bigzhu/gobz/apibz"
+	_ "github.com/bigzhu/gobz/confbz"
+	_ "github.com/bigzhu/gobz/functionbz"
+	_ "github.com/bigzhu/gobz/ginbz"
+	_ "github.com/bigzhu/gobz/httpbz"
+	_ "github.com/bigzhu/gobz/jsonbz"
+	_ "github.com/bigzhu/gobz/modelsbz"
+	_ "github.com/bigzhu/gobz/rsabz"
+	_ "github.com/bigzhu/gobz/services/callbackbz"
+	_ "github.com/bigzhu/gobz/services/mailbz"
+	_ "github.com/bigzhu/gobz/services/oauthbz"
+	_ "github.com/bigzhu/gobz/services/smsbz"
+	_ "github.com/bigzhu/gobz/telegram"
 	"github.com/bigzhu/gobz/test"
 	"github.com/bigzhu/gobz/websocketbz"
+	_ "github.com/bigzhu/gobz/websocketbz"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )

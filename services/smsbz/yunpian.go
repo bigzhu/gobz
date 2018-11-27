@@ -1,12 +1,13 @@
 package smsbz
 
 import (
-	ypclnt "github.com/yunpian/yunpian-go-sdk/sdk"
-	"github.com/bigzhu/gobz/confbz"
 	"errors"
+	"fmt"
 	"net/url"
 	"regexp"
-	"fmt"
+
+	"github.com/bigzhu/gobz/confbz"
+	ypclnt "github.com/yunpian/yunpian-go-sdk/sdk"
 )
 
 var (
@@ -26,7 +27,7 @@ func SendIntl(phone string, msg string) (result *ypclnt.Result, err error) {
 		return
 	}
 	conf := confbz.GetYunPianConf()
-	client := ypclnt.New(conf.ApiKey)
+	client := ypclnt.New(conf.APIKey)
 	param := ypclnt.NewParam(2)
 	param[ypclnt.MOBILE] = phone
 	param[ypclnt.TEXT] = msg

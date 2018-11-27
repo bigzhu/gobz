@@ -4,7 +4,6 @@ package oauthbz
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/bigzhu/gobz/httpbz"
@@ -45,6 +44,5 @@ func OauthGoogle(c *gin.Context, redirectURL string, clientID string, clientSecr
 	}
 	err = json.Unmarshal([]byte(data), &googleUserInfo)
 	googleUserInfo.Type = Google
-	log.Println(googleUserInfo)
 	return
 }

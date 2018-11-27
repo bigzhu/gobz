@@ -1,5 +1,5 @@
-// Package callback 针对一些需要 http 反复回调, 并且需要记录回调结果的情况
-package callback
+// Package callbackbz 针对一些需要 http 反复回调, 并且需要记录回调结果的情况
+package callbackbz
 
 import (
 	"log"
@@ -25,7 +25,6 @@ const (
 // callback.URL 地址
 // callback.Request 请求参数
 func Callback(callback CallbackModel) {
-	log
 	response, statusCode, err := httpbz.Post(callback.URL, callback.Request, nil)
 	if err != nil {
 		callback.ErrorInfo = err.Error()
