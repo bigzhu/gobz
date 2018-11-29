@@ -21,6 +21,7 @@ import (
 	_ "github.com/bigzhu/gobz/websocketbz"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/ugorji/go/codec"
 )
 
 //SetupPlay 运维平台
