@@ -10,7 +10,7 @@ func TestGetSiteConf(t *testing.T) {
 		name         string
 		wantSiteConf SiteConf
 	}{
-		{"base", SiteConf{Secret: "secret just secret", CookieSalt: "salt just salt"}},
+		{"base", SiteConf{Secret: "secret just secret", CookieSalt: "salt just salt", Port: 4004}},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {

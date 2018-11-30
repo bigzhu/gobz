@@ -11,6 +11,6 @@ type EmailConf struct {
 
 // GetEmailConf 获取lomocoin邮件服务配置
 func GetEmailConf() (conf EmailConf) {
-	GetConf("email", &conf)
+	GetConfNew(&conf)
 	return
 }

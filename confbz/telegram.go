@@ -9,6 +9,6 @@ type TelegramConf struct {
 
 // GetTelegramConf telegram 配置
 func GetTelegramConf() (telegramConf TelegramConf) {
-	GetConf("telegram", &telegramConf)
+	GetConfNew(&telegramConf)
 	return
 }

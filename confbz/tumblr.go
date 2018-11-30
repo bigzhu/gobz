@@ -8,6 +8,6 @@ type TumblrConf struct {
 
 // GetTumblrConf tumblr 配置
 func GetTumblrConf() (tumblrConf TumblrConf) {
-	GetConf("tumblr", &tumblrConf)
+	GetConfNew(&tumblrConf)
 	return
 }

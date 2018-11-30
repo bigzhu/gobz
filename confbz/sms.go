@@ -18,13 +18,13 @@ type YunPianConf struct {
 
 // GetHengTongConf telegram 配置
 func GetHengTongConf() (conf HengTongConf) {
-	GetConf("hengtong", &conf)
+	GetConfNew(&conf)
 	return
 }
 
 // GetYunPianConf 获取云片配置
 func GetYunPianConf() (conf YunPianConf) {
-	GetConf("yunpian", &conf)
+	GetConfNew(&conf)
 	return
 }
 
@@ -36,6 +36,6 @@ type SMSConf struct {
 
 // GetSMSConf telegram 配置
 func GetSMSConf() (conf SMSConf) {
-	GetConf("sms", &conf)
+	GetConfNew(&conf)
 	return
 }
