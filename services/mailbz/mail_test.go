@@ -1,5 +1,6 @@
 package mailbz
 
+/*
 import (
 	"fmt"
 	"net"
@@ -69,3 +70,4 @@ func TestDialSMTP(t *testing.T) {
 		fmt.Println(err)
 	}
 }
+*/

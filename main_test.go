@@ -25,7 +25,8 @@ import (
 )
 
 func init() {
-	log.SetFlags(log.Lshortfile | log.LstdFlags)
+	// test log 时候显示文件全路径
+	log.SetFlags(log.Llongfile | log.LstdFlags)
 }
 func TestSetupPlay(t *testing.T) {
 	tests := []struct {

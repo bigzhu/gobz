@@ -11,7 +11,7 @@ func TestGetEmailConf(t *testing.T) {
 		wantConf EmailConf
 	}{
 		// TODO: Add test cases.
-		{"base", EmailConf{}},
+		{"base", EmailConf{User: "oeohomos@163.com", Password: "abc123456", Host: "smtp.163.com", Port: 25}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

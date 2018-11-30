@@ -1,4 +1,4 @@
-// mail包提供常用的发邮件功能, 目前只支持SMTP邮件服务器.
+// Package mailbz 提供常用的发邮件功能, 目前只支持SMTP邮件服务器.
 // 基于github.com/qor/mailer, 这里只是做了初始化等细节的工作.
 package mailbz
 
@@ -76,12 +76,6 @@ func SendTemplate(replyTo *Address, to []Address, subject string, templates []Te
 		Subject:     subject,
 		Attachments: attachments,
 	}, templates...)
-}
-
-func newMailerByConf() (mailer *qorMailer.Mailer, err error) {
-	conf := confbz.GetEmailConf()
-	mailer, err = newMailer(conf.Host, conf.Port, conf.User, conf.Password, conf.AssetPaths)
-	return
 }
 
 func newMailer(host string, port int, username, password string, assetBaseDirs []string) (mailer *qorMailer.Mailer, err error) {
