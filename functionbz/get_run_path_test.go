@@ -12,7 +12,7 @@ func Test_getRunPath(t *testing.T) {
 		wantPath string
 		wantErr  bool
 	}{
-		{"base", "/Users/bigzhu/go/src/github.com/bigzhu/gobz/confbz", false},
+		{"base", "/Users/bigzhu/go/src/github.com/bigzhu/gobz/functionbz", false},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {

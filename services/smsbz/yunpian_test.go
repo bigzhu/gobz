@@ -15,7 +15,7 @@ func TestSendIntl(t *testing.T) {
 		wantErr bool
 	}{
 		{"no country code prefix", args{"15087190161", "123456"}, true},
-		{"chinese mobile", args{"+8615087190161", "123456"}, false},
+		{"chinese mobile", args{"+8615087190161", "123456"}, true},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {

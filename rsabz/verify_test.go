@@ -2,6 +2,7 @@ package rsabz
 
 import (
 	"crypto/rsa"
+	"math/big"
 	"reflect"
 	"testing"
 )
@@ -29,7 +30,7 @@ func TestVerify(t *testing.T) {
 	}{
 		{"ok", ok, false},
 		{"error", errArg, true},
-		{"error", noTagArg, false}, // 没有 tag 不会正确干活
+		{"error", noTagArg, true}, // 没有 tag 不会正确干活
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
@@ -46,13 +47,18 @@ func Test_getPublicKey(t *testing.T) {
 		publicKey string
 	}
 	arg := args{publicKey: publicKey}
+	// 期望的公钥
+	wantP := new(rsa.PublicKey)
+	wantP.N = big.NewInt(0)
+	wantP.N.UnmarshalText([]byte("27184214226514158133300405299262353320292689684496368351344204098139332725880164777937651648325899107719408786796723369854875267353567309901948699160814049702206646065668152118198503452408544361562495115576674205119500961500401332875489305487337697931238137393355451032229158978665510808420232724088506155489843106213322494867991334200807786660769718152922304261316066609887484718846661796668623876670281516113590497056901119195916278334180533028261230601929397812932279788664594049350506128797319605281983312818031636647569117770724434665193888841497146780558439732128192283654221133610248799040021183184084526214689"))
+	wantP.E = 65537
 	tests := []struct {
 		name    string
 		args    args
 		wantP   *rsa.PublicKey
 		wantErr bool
 	}{
-		{"base", arg, nil, false},
+		{"base", arg, wantP, false},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {

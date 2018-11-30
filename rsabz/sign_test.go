@@ -1,8 +1,6 @@
 package rsabz
 
 import (
-	"crypto/rsa"
-	"reflect"
 	"testing"
 )
 
@@ -49,21 +47,17 @@ func Test_getPrivateKey(t *testing.T) {
 	tests := []struct {
 		name    string
 		args    args
-		want    *rsa.PrivateKey
 		wantErr bool
 	}{
-		{"base", arg, nil, false},
+		{"base", arg, false},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := getPrivateKey(tt.args.privateKey)
+			_, err := getPrivateKey(tt.args.privateKey)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("getPrivateKey() error = %v, wantErr %v", err, tt.wantErr)
 				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("getPrivateKey() = %v, want %v", got, tt.want)
 			}
 		})
 	}
