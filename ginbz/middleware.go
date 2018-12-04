@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/bigzhu/gobz/apibz"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
@@ -15,7 +16,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		userID := session.Get("user")
 		if userID == nil {
 			log.Println("get userID", c.MustGet("userID"))
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: "必须登录"})
+			c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE("必须登录"))
 			return
 		}
 		c.Set("userID", userID)
