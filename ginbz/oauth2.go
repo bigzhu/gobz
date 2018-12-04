@@ -1,8 +1,10 @@
 package ginbz
 
 import (
+	"log"
 	"net/http"
 
+	"github.com/bigzhu/gobz/apibz"
 	"github.com/bigzhu/gobz/confbz"
 	"github.com/bigzhu/gobz/modelsbz"
 	"github.com/bigzhu/gobz/services/oauthbz"
@@ -12,23 +14,24 @@ import (
 
 // Google oauth2
 func Google(c *gin.Context) {
+	log.Println()
 	oauthConf := confbz.GetOauthConf()
 	oauthInfo, err := oauthbz.OauthGoogle(c, oauthConf.RedirectURL, oauthConf.ClientID, oauthConf.ClientSecret)
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
+		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
 	}
 	oauthInfo.Type = "google"
 	err = modelsbz.DB.Where("email=?", oauthInfo.Email).FirstOrCreate(&oauthInfo).Error
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
+		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
 	}
 	session := sessions.Default(c)
 	session.Set("user", oauthInfo.OID)
 	err = session.Save()
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{ERROR: err.Error()})
+		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
 	}
 	c.Redirect(http.StatusFound, "/")

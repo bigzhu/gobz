@@ -21,14 +21,14 @@ require (
 	github.com/pkg/errors v0.8.0
 	github.com/qor/assetfs v0.0.0-20170713023933-ff57fdc13a14
 	github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac
-	github.com/qor/qor v0.0.0-20180607095400-a9b667cbbf18 // indirect
+	github.com/qor/qor v0.0.0-20181204071447-49b2dd4f5840 // indirect
 	github.com/qor/render v0.0.0-20171201033449-63566e46f01b // indirect
 	github.com/rainycape/unidecode v0.0.0-20150907023854-cb7f23ec59be // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/ugorji/go/codec v0.0.0-20181127175209-856da096dbdf
 	github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459
-	golang.org/x/net v0.0.0-20181129055619-fae4c4e3ad76 // indirect
-	golang.org/x/oauth2 v0.0.0-20181128211412-28207608b838
+	golang.org/x/net v0.0.0-20181201002055-351d144fa1fc // indirect
+	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 	gopkg.in/olahol/melody.v1 v1.0.0-20170518105555-d52139073376
 	gopkg.in/telegram-bot-api.v4 v4.6.4

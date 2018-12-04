@@ -9,6 +9,6 @@ type Error struct {
 
 // NewE 新建错误类型
 func NewE(errIn interface{}) (errOut Error) {
-	errOut.Error = fmt.Sprintf("%+v", errIn)
+	errOut.Error = fmt.Sprintf("%v", errIn)
 	return
 }
