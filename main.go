@@ -15,6 +15,7 @@ import (
 	_ "github.com/bigzhu/gobz/services/mailbz"
 	_ "github.com/bigzhu/gobz/services/oauthbz"
 	_ "github.com/bigzhu/gobz/services/smsbz"
+	_ "github.com/bigzhu/gobz/services/tokenize"
 	_ "github.com/bigzhu/gobz/telegram"
 	"github.com/bigzhu/gobz/test"
 	"github.com/bigzhu/gobz/websocketbz"

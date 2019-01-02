@@ -30,6 +30,7 @@ require (
 	golang.org/x/net v0.0.0-20181201002055-351d144fa1fc // indirect
 	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
+	gopkg.in/neurosnap/sentences.v1 v1.0.6
 	gopkg.in/olahol/melody.v1 v1.0.0-20170518105555-d52139073376
 	gopkg.in/telegram-bot-api.v4 v4.6.4
 	gopkg.in/yaml.v2 v2.2.2 // indirect
