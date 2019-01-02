@@ -61,7 +61,7 @@ var contractions = []*regexp.Regexp{
 }
 
 // var newlines = regexp.MustCompile(`(?:\n|\n\r|\r)`)
-var spaces = regexp.MustCompile(`(?: {2,})`)
+// var spaces = regexp.MustCompile(`(?: {2,})`)
 
 // Tokenize splits a sentence into a slice of words.
 //
@@ -107,7 +107,7 @@ func (t TreebankWordTokenizer) Tokenize(text string) []string {
 		text = r.ReplaceAllString(text, " $1 $2 ")
 	}
 
-	// text = newlines.ReplaceAllString(text, " ")
-	text = strings.TrimSpace(spaces.ReplaceAllString(text, " "))
+	// text = newlines.ReplaceAllString(text, "\n")
+	// text = strings.TrimSpace(spaces.ReplaceAllString(text, " "))
 	return strings.Split(text, " ")
 }
