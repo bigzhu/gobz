@@ -17,7 +17,7 @@ const Google = "google"
 
 // OauthGoogle oauth2
 func OauthGoogle(c *gin.Context) (googleUserInfo OauthInfo, err error) {
-	var googleOauthConf = &oauth2.Config{
+	googleOauthConf := &oauth2.Config{
 		ClientID:     oauthConf.Google.ClientID,
 		ClientSecret: oauthConf.Google.ClientSecret,
 		RedirectURL:  oauthConf.Google.RedirectURL,

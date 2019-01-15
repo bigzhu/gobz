@@ -30,6 +30,7 @@ func SetupPlay() *gin.Engine {
 	r := gin.New()
 	api := r.Group("/api")
 	api.GET("google", test.Google)
+	api.GET("github", test.Github)
 	r.GET("/ws", func(c *gin.Context) {
 		websocketbz.M.HandleRequest(c.Writer, c.Request)
 	})

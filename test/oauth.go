@@ -9,3 +9,8 @@ import (
 func Google(c *gin.Context) {
 	_, _ = oauthbz.OauthGoogle(c)
 }
+
+// Github oauth2
+func Github(c *gin.Context) {
+	_, _ = oauthbz.OauthGithub(c)
+}
