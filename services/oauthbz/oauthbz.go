@@ -4,9 +4,16 @@ import (
 	"net/http"
 
 	"github.com/bigzhu/gobz/apibz"
+	"github.com/bigzhu/gobz/confbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 )
+
+var oauthConf confbz.Oauth
+
+func init() {
+	oauthConf = confbz.GetOauthConf()
+}
 
 // GetAccessToken 获取到AccessToken
 // c gin 的环境变量

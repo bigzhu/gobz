@@ -16,17 +16,16 @@ import (
 const Google = "google"
 
 // OauthGoogle oauth2
-func OauthGoogle(c *gin.Context, redirectURL string, clientID string, clientSecret string) (googleUserInfo OauthInfo, err error) {
-	// c := outc.(*gin.Context)
-	var googleConf = &oauth2.Config{
-		ClientID:     clientID,
-		ClientSecret: clientSecret,
-		RedirectURL:  redirectURL,
+func OauthGoogle(c *gin.Context) (googleUserInfo OauthInfo, err error) {
+	var googleOauthConf = &oauth2.Config{
+		ClientID:     oauthConf.Google.ClientID,
+		ClientSecret: oauthConf.Google.ClientSecret,
+		RedirectURL:  oauthConf.Google.RedirectURL,
 		Scopes: []string{"https://www.googleapis.com/auth/userinfo.profile",
 			"https://www.googleapis.com/auth/userinfo.email"},
 		Endpoint: google.Endpoint,
 	}
-	accessToken, err := GetAccessToken(c, googleConf)
+	accessToken, err := GetAccessToken(c, googleOauthConf)
 	data, _, err := httpbz.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+accessToken, nil)
 	if err != nil {
 		return
