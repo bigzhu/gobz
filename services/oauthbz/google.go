@@ -4,7 +4,7 @@ package oauthbz
 
 import (
 	"encoding/json"
-	"net/http"
+	"log"
 
 	"github.com/bigzhu/gobz/httpbz"
 	"github.com/gin-gonic/gin"
@@ -26,23 +26,14 @@ func OauthGoogle(c *gin.Context, redirectURL string, clientID string, clientSecr
 			"https://www.googleapis.com/auth/userinfo.email"},
 		Endpoint: google.Endpoint,
 	}
-	state := c.Query("state")
-	if state == "" {
-		url := googleConf.AuthCodeURL("state")
-		c.Redirect(http.StatusFound, url)
-	}
-	code := c.Query("code")
-	token, err := googleConf.Exchange(oauth2.NoContext, code)
-	if err != nil {
-		// c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{ERROR: err.Error()})
-		return
-	}
-
-	data, _, err := httpbz.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+token.AccessToken, nil)
+	accessToken, err := GetAccessToken(c, googleConf)
+	data, _, err := httpbz.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token="+accessToken, nil)
 	if err != nil {
 		return
 	}
 	err = json.Unmarshal([]byte(data), &googleUserInfo)
 	googleUserInfo.Type = Google
+	d, _ := json.Marshal(googleUserInfo)
+	log.Println(string(d))
 	return
 }

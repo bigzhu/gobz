@@ -28,8 +28,8 @@ import (
 //SetupPlay 运维平台
 func SetupPlay() *gin.Engine {
 	r := gin.New()
-	playGroup := r.Group("/playAPI")
-	playGroup.GET("Google", test.Google)
+	api := r.Group("/api")
+	api.GET("google", test.Google)
 	r.GET("/ws", func(c *gin.Context) {
 		websocketbz.M.HandleRequest(c.Writer, c.Request)
 	})

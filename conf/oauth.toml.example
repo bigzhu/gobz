@@ -1,5 +1,3 @@
-# redirect_url = "https://play.dabank.io/api/Google"
-# redirect_url = "http://play.busfactor.xyz/api/Google"
-redirect_url = "http://localhost:8080/api/Google"
-client_id = "535143305360-id9sldtnpb4jmkqls8m9m5eerf6dir2q.apps.googleusercontent.com"
-client_secret = "AXFnlSBKyICXItlG5K_0lusI"
+redirect_url = "http://localhost:8080/api/google"
+client_id = "client_id.apps.googleusercontent.com"
+client_secret = "client_secret"
