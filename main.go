@@ -37,6 +37,8 @@ func SetupPlay() *gin.Engine {
 	return r
 }
 func main() {
+	// 显示文件路径
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	log.Println("启动 gobz")
 	r := SetupPlay()
 	err := r.Run(":3003")

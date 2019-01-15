@@ -23,7 +23,7 @@ func Google(c *gin.Context) {
 		return
 	}
 	session := sessions.Default(c)
-	session.Set("user", oauthInfo.OID)
+	session.Set("user", oauthInfo.ID)
 	err = session.Save()
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
@@ -35,9 +35,9 @@ func Google(c *gin.Context) {
 // OauthInfo 获取用户信息
 func OauthInfo(c *gin.Context) {
 	userID := getUserID(c)
-	oauth := oauthbz.OauthInfo{OID: userID}
+	oauth := oauthbz.OauthInfo{}
 	modelsbz.DB.
-		Where("o_id=?", userID).
+		Where("id=?", userID).
 		Find(&oauth)
 	c.JSON(http.StatusOK, oauth)
 }

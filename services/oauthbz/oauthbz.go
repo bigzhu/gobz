@@ -19,7 +19,6 @@ func init() {
 // c gin 的环境变量
 // conf oauth2 的相关配置
 func GetAccessToken(c *gin.Context, conf *oauth2.Config) (accessToken string, err error) {
-
 	state := c.Query("state")
 	// 如果没有传递 state 参数过来, 重定向到获取 state 页面(授权)
 	if state == "" {
