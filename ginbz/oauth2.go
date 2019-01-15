@@ -1,11 +1,9 @@
 package ginbz
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/bigzhu/gobz/apibz"
-	"github.com/bigzhu/gobz/confbz"
 	"github.com/bigzhu/gobz/modelsbz"
 	"github.com/bigzhu/gobz/services/oauthbz"
 	"github.com/gin-gonic/contrib/sessions"
@@ -14,21 +12,18 @@ import (
 
 // Google oauth2
 func Google(c *gin.Context) {
-	log.Println()
-	oauthConf := confbz.GetOauthConf()
-	oauthInfo, err := oauthbz.OauthGoogle(c, oauthConf.RedirectURL, oauthConf.ClientID, oauthConf.ClientSecret)
+	oauthInfo, err := oauthbz.OauthGoogle(c)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
 	}
-	oauthInfo.Type = "google"
 	err = modelsbz.DB.Where("email=?", oauthInfo.Email).FirstOrCreate(&oauthInfo).Error
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
 	}
 	session := sessions.Default(c)
-	session.Set("user", oauthInfo.OID)
+	session.Set("user", oauthInfo.ID)
 	err = session.Save()
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
@@ -40,9 +35,9 @@ func Google(c *gin.Context) {
 // OauthInfo 获取用户信息
 func OauthInfo(c *gin.Context) {
 	userID := getUserID(c)
-	oauth := oauthbz.OauthInfo{OID: userID}
+	oauth := oauthbz.OauthInfo{}
 	modelsbz.DB.
-		Where("o_id=?", userID).
+		Where("id=?", userID).
 		Find(&oauth)
 	c.JSON(http.StatusOK, oauth)
 }

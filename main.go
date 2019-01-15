@@ -28,14 +28,17 @@ import (
 //SetupPlay 运维平台
 func SetupPlay() *gin.Engine {
 	r := gin.New()
-	playGroup := r.Group("/playAPI")
-	playGroup.GET("Google", test.Google)
+	api := r.Group("/api")
+	api.GET("google", test.Google)
+	api.GET("github", test.Github)
 	r.GET("/ws", func(c *gin.Context) {
 		websocketbz.M.HandleRequest(c.Writer, c.Request)
 	})
 	return r
 }
 func main() {
+	// 显示文件路径
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	log.Println("启动 gobz")
 	r := SetupPlay()
 	err := r.Run(":3003")
