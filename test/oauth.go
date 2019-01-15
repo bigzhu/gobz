@@ -9,5 +9,6 @@ import (
 // Google oauth2
 func Google(c *gin.Context) {
 	oauthConf := confbz.GetOauthConf()
-	_, _ = oauthbz.OauthGoogle(c, oauthConf.RedirectURL, oauthConf.ClientID, oauthConf.ClientSecret)
+	google := oauthConf.Google
+	_, _ = oauthbz.OauthGoogle(c, google.RedirectURL, google.ClientID, google.ClientSecret)
 }

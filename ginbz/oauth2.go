@@ -1,7 +1,6 @@
 package ginbz
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/bigzhu/gobz/apibz"
@@ -14,9 +13,9 @@ import (
 
 // Google oauth2
 func Google(c *gin.Context) {
-	log.Println()
 	oauthConf := confbz.GetOauthConf()
-	oauthInfo, err := oauthbz.OauthGoogle(c, oauthConf.RedirectURL, oauthConf.ClientID, oauthConf.ClientSecret)
+	google := oauthConf.Google
+	oauthInfo, err := oauthbz.OauthGoogle(c, google.RedirectURL, google.ClientID, google.ClientSecret)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE(err))
 		return
