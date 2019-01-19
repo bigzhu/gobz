@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/bigzhu/gobz/modelsbz"
+	"github.com/pkg/errors"
 )
 
 // OauthInfo Oauth 的用户信息
@@ -64,4 +65,14 @@ type GithubOauthInfo struct {
 	Following         int         `json:"following"`
 	CreatedAt         time.Time   `json:"created_at"`
 	UpdatedAt         time.Time   `json:"updated_at"`
+}
+
+// SaveOrGet 保存或者获取
+func SaveOrGet(oauthInfo *OauthInfo) (err error) {
+	err = modelsbz.DB.Where(OauthInfo{OutID: oauthInfo.OutID, Type: oauthInfo.Type}).Assign(oauthInfo).FirstOrCreate(&oauthInfo).Error
+	if err != nil {
+		err = errors.WithStack(err)
+		return
+	}
+	return
 }

@@ -51,3 +51,13 @@ func OauthGithub(c *gin.Context) (oauthInfo OauthInfo, err error) {
 	log.Println(string(d))
 	return
 }
+
+// OauthGithubSave oauth 登录并且保存
+func OauthGithubSave(c *gin.Context) (oauthInfo OauthInfo, err error) {
+	oauthInfo, err = OauthGithub(c)
+	if err != nil {
+		return
+	}
+	err = SaveOrGet(&oauthInfo)
+	return
+}

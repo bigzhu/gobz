@@ -5,9 +5,7 @@ package oauthbz
 import (
 	"encoding/json"
 	"log"
-	"net/http"
 
-	"github.com/bigzhu/gobz/apibz"
 	"github.com/bigzhu/gobz/httpbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
@@ -29,7 +27,6 @@ func OauthGoogle(c *gin.Context) (oauthInfo OauthInfo, err error) {
 	}
 	accessToken, err := GetAccessToken(c, googleOauthConf)
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusInternalServerError, apibz.NewE(err))
 		return
 	}
 	if accessToken == "" { // 说明还在前奏
@@ -41,6 +38,9 @@ func OauthGoogle(c *gin.Context) (oauthInfo OauthInfo, err error) {
 	}
 	googleOauthInfo := GoogleOauthInfo{}
 	err = json.Unmarshal([]byte(data), &googleOauthInfo)
+	if err != nil {
+		return
+	}
 	oauthInfo.Type = Google
 	oauthInfo.Email = googleOauthInfo.Email
 	oauthInfo.OutID = googleOauthInfo.ID
@@ -49,5 +49,15 @@ func OauthGoogle(c *gin.Context) (oauthInfo OauthInfo, err error) {
 	oauthInfo.Link = googleOauthInfo.Link
 	d, _ := json.Marshal(oauthInfo)
 	log.Println(string(d))
+	return
+}
+
+// OauthGoogleSave oauth 登录并且保存
+func OauthGoogleSave(c *gin.Context) (oauthInfo OauthInfo, err error) {
+	oauthInfo, err = OauthGoogle(c)
+	if err != nil {
+		return
+	}
+	err = SaveOrGet(&oauthInfo)
 	return
 }
