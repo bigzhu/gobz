@@ -7,17 +7,6 @@ import (
 	"github.com/pkg/errors"
 )
 
-// OauthInfo Oauth 的用户信息
-type OauthInfo struct {
-	modelsbz.Base
-	OutID     string `json:"out_id" gorm:""` // 外部系统的 id
-	Email     string `json:"email" gorm:"not null"`
-	Name      string `json:"name" gorm:""`
-	AvatarURL string `json:"avatar_url"`           // 头像 url
-	Link      string `json:"link" gorm:""`         // 个人页面的地址
-	Type      string `json:"type" gorm:"not null"` // oauth 类型 google twitter github
-}
-
 // GoogleOauthInfo Oauth 的用户信息
 type GoogleOauthInfo struct {
 	ID            string `json:"id" `
@@ -68,8 +57,8 @@ type GithubOauthInfo struct {
 }
 
 // SaveOrGet 保存或者获取
-func SaveOrGet(oauthInfo *OauthInfo) (err error) {
-	err = modelsbz.DB.Where(OauthInfo{OutID: oauthInfo.OutID, Type: oauthInfo.Type}).Assign(oauthInfo).FirstOrCreate(&oauthInfo).Error
+func SaveOrGet(oauthInfo *modelsbz.OauthInfo) (err error) {
+	err = modelsbz.DB.Where(modelsbz.OauthInfo{OutID: oauthInfo.OutID, Type: oauthInfo.Type}).Assign(oauthInfo).FirstOrCreate(&oauthInfo).Error
 	if err != nil {
 		err = errors.WithStack(err)
 		return

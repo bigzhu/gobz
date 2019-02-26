@@ -10,6 +10,7 @@ import (
 
 	"github.com/bigzhu/gobz/apibz"
 	"github.com/bigzhu/gobz/httpbz"
+	"github.com/bigzhu/gobz/modelsbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/github"
@@ -19,7 +20,7 @@ import (
 const Github = "github"
 
 // OauthGithub oauth2
-func OauthGithub(c *gin.Context) (oauthInfo OauthInfo, err error) {
+func OauthGithub(c *gin.Context) (oauthInfo modelsbz.OauthInfo, err error) {
 	githubOauthConf := &oauth2.Config{
 		ClientID:     oauthConf.GitHub.ClientID,
 		ClientSecret: oauthConf.GitHub.ClientSecret,
@@ -53,7 +54,7 @@ func OauthGithub(c *gin.Context) (oauthInfo OauthInfo, err error) {
 }
 
 // OauthGithubSave oauth 登录并且保存
-func OauthGithubSave(c *gin.Context) (oauthInfo OauthInfo, err error) {
+func OauthGithubSave(c *gin.Context) (oauthInfo modelsbz.OauthInfo, err error) {
 	oauthInfo, err = OauthGithub(c)
 	if err != nil {
 		return

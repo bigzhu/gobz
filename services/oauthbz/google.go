@@ -7,6 +7,7 @@ import (
 	"log"
 
 	"github.com/bigzhu/gobz/httpbz"
+	"github.com/bigzhu/gobz/modelsbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -16,7 +17,7 @@ import (
 const Google = "google"
 
 // OauthGoogle oauth2
-func OauthGoogle(c *gin.Context) (oauthInfo OauthInfo, err error) {
+func OauthGoogle(c *gin.Context) (oauthInfo modelsbz.OauthInfo, err error) {
 	googleOauthConf := &oauth2.Config{
 		ClientID:     oauthConf.Google.ClientID,
 		ClientSecret: oauthConf.Google.ClientSecret,
@@ -53,7 +54,7 @@ func OauthGoogle(c *gin.Context) (oauthInfo OauthInfo, err error) {
 }
 
 // OauthGoogleSave oauth 登录并且保存
-func OauthGoogleSave(c *gin.Context) (oauthInfo OauthInfo, err error) {
+func OauthGoogleSave(c *gin.Context) (oauthInfo modelsbz.OauthInfo, err error) {
 	oauthInfo, err = OauthGoogle(c)
 	if err != nil {
 		return
