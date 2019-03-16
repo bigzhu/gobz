@@ -4,6 +4,8 @@ package modelsbz
 func UpdateOrCreate(where interface{}, o interface{}) (err error) {
 	if DB.Model(o).Where(where).Update(o).RowsAffected == 0 {
 		err = DB.Create(o).Error
+	} else {
+		err = DB.Model(o).Where(where).First(o).Error
 	}
 	return
 }
