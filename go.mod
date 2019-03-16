@@ -27,6 +27,7 @@ require (
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/ugorji/go/codec v0.0.0-20181127175209-856da096dbdf
 	github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459
+	golang.org/x/arch v0.0.0-20190312162104-788fe5ffcd8c // indirect
 	golang.org/x/net v0.0.0-20181201002055-351d144fa1fc // indirect
 	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
