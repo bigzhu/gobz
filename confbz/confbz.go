@@ -24,6 +24,19 @@ func GetConf(confbzName string, v interface{}) {
 		panic(err)
 	}
 	confPath := fmt.Sprintf("conf/%s.toml", confbzName)
+	err = loopFind(codePath, confPath, v)
+	// 尝试不要 conf 子路径查找
+
+	if err != nil {
+		confPath = fmt.Sprintf("%s.toml", confbzName)
+		err = loopFind(codePath, confPath, v)
+	}
+	if err != nil {
+		panic(err)
+	}
+}
+
+func loopFind(codePath string, confPath string, v interface{}) (err error) {
 	// 尝试向上找10级
 	for i := 0; i < 10; i++ {
 		_, err = toml.DecodeFile(codePath+"/"+confPath, v)
@@ -32,9 +45,7 @@ func GetConf(confbzName string, v interface{}) {
 		}
 		confPath = "../" + confPath
 	}
-	if err != nil {
-		panic(err)
-	}
+	return
 }
 
 // GetConfNew 根据结构体, 自动确定文件名
