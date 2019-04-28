@@ -43,6 +43,11 @@ func loopFind(codePath string, confPath string, v interface{}) (err error) {
 		if err == nil {
 			return
 		}
+		// 不是找不到文件的报错, 就直接退出
+		if !strings.Contains(err.Error(), "no such file or directory") {
+			return
+		}
+
 		confPath = "../" + confPath
 	}
 	return
