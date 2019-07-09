@@ -6,9 +6,9 @@ import (
 
 // Base 基本模型的定义
 type Base struct {
-	ID        int       `gorm:"primary_key" json:"id"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID        int `gorm:"primary_key" `
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
 
 // GetInstance 获取一条记录
