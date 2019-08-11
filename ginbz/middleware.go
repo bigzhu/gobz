@@ -16,7 +16,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		userID := session.Get("user")
 		if userID == nil {
 			log.Println("get userID", c.MustGet("userID"))
-			c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE("必须登录"))
+			c.AbortWithStatusJSON(http.StatusUnauthorized, apibz.NewE("need login"))
 			return
 		}
 		c.Set("userID", userID)
