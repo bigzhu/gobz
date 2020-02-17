@@ -20,7 +20,7 @@ func TestGet(t *testing.T) {
 		wantErr        bool
 	}{
 		// TODO: Add test cases.
-		{"401", arg1, `{"error":"必须登录"}`, 401, false},
+		{"401", arg1, `{"error":"need login"}`, 401, false},
 		{"200", arg2, `[]`, 200, false},
 	}
 	for _, tt := range tests {

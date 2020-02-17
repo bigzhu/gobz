@@ -24,6 +24,7 @@ require (
 	github.com/qor/qor v0.0.0-20181204071447-49b2dd4f5840 // indirect
 	github.com/qor/render v0.0.0-20171201033449-63566e46f01b // indirect
 	github.com/rainycape/unidecode v0.0.0-20150907023854-cb7f23ec59be // indirect
+	github.com/sirupsen/logrus v1.4.2
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/ugorji/go/codec v0.0.0-20181127175209-856da096dbdf
 	github.com/yunpian/yunpian-go-sdk v0.0.0-20171206021512-2193bf8a7459
@@ -36,3 +37,5 @@ require (
 	gopkg.in/telegram-bot-api.v4 v4.6.4
 	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
+
+go 1.13

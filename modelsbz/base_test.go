@@ -8,8 +8,8 @@ import (
 // Base 基本模型的定义
 type Son struct {
 	Base
-	SonName  string `json:"son_name"`
-	LastName string `json:"last_name"`
+	SonName  string
+	LastName string
 }
 
 // GetInstance 获取实例
