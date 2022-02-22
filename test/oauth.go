@@ -1,7 +1,7 @@
 package test
 
 import (
-	"gobz/services/oauthbz"
+	"github.com/bigzhu/gobz/services/oauthbz"
 	"github.com/gin-gonic/gin"
 )
 

@@ -12,7 +12,7 @@ require (
 	github.com/gorilla/sessions v1.2.1 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/jinzhu/configor v1.2.1 // indirect
-	github.com/jinzhu/gorm v1.9.15
+	github.com/jinzhu/gorm v1.9.16
 	github.com/neurosnap/sentences v1.0.9 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/qor/assetfs v0.0.0-20170713023933-ff57fdc13a14
@@ -31,5 +31,4 @@ require (
 	gopkg.in/telegram-bot-api.v4 v4.6.4
 	gorm.io/driver/postgres v1.3.1
 	gorm.io/gorm v1.23.1
-
 )

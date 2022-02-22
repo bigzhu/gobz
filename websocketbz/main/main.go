@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gobz/websocketbz"
+	"github.com/bigzhu/gobz/websocketbz"
 	"github.com/gin-gonic/gin"
 	melody "gopkg.in/olahol/melody.v1"
 )

@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"regexp"
 
-	"gobz/confbz"
+	"github.com/bigzhu/gobz/confbz"
 	ypclnt "github.com/yunpian/yunpian-go-sdk/sdk"
 )
 

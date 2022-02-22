@@ -3,8 +3,8 @@ package ginbz
 import (
 	"net/http"
 
-	"gobz/apibz"
-	"gobz/services/oauthbz"
+	"github.com/bigzhu/gobz/apibz"
+	"github.com/bigzhu/gobz/services/oauthbz"
 	"github.com/gin-gonic/gin"
 )
 

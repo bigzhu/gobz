@@ -3,7 +3,7 @@ package oauthbz
 import (
 	"time"
 
-	"gobz/modelsbz"
+	"github.com/bigzhu/gobz/modelsbz"
 	"github.com/pkg/errors"
 )
 

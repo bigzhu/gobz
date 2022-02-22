@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"gobz/confbz"
+	"github.com/bigzhu/gobz/confbz"
 
 	"gorm.io/gorm"
 

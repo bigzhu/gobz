@@ -1,5 +1,5 @@
 # Binaries for programs and plugins
-gobz
+github.com/bigzhu/gobz
 *.exe
 *.exe~
 *.dll

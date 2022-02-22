@@ -6,7 +6,7 @@ import (
 	"net"
 	"testing"
 
-	"gobz/confbz"
+	"github.com/bigzhu/gobz/confbz"
 )
 
 var (

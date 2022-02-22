@@ -3,7 +3,7 @@ package telegram
 import (
 	"log"
 
-	"gobz/confbz"
+	"github.com/bigzhu/gobz/confbz"
 	"github.com/pkg/errors"
 	tgbotapi "gopkg.in/telegram-bot-api.v4"
 )
