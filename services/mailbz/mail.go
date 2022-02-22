@@ -5,7 +5,7 @@ package mailbz
 import (
 	"net/mail"
 
-	"github.com/bigzhu/gobz/confbz"
+	"gobz/confbz"
 	"github.com/go-gomail/gomail"
 	"github.com/qor/assetfs"
 	qorMailer "github.com/qor/mailer"

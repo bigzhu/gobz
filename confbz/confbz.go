@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/BurntSushi/toml"
-	"github.com/bigzhu/gobz/functionbz"
+	"gobz/functionbz"
 )
 
 // 各种东西的配置文件读取

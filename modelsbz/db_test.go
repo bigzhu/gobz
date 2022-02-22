@@ -3,7 +3,7 @@ package modelsbz
 import (
 	"testing"
 
-	"github.com/bigzhu/gobz/confbz"
+	"gobz/confbz"
 	"github.com/pkg/errors"
 )
 

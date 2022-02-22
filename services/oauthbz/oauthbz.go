@@ -3,8 +3,8 @@ package oauthbz
 import (
 	"net/http"
 
-	"github.com/bigzhu/gobz/apibz"
-	"github.com/bigzhu/gobz/confbz"
+	"gobz/apibz"
+	"gobz/confbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 )

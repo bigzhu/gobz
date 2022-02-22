@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/bigzhu/gobz/apibz"
+	"gobz/apibz"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"

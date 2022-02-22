@@ -1,7 +1,7 @@
 package modelsbz
 
 import (
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 // Model 哦

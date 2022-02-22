@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/pkg/errors"
+	"gorm.io/gorm"
 )
 
 func unlogged(tableNames ...string) (err error) {
@@ -18,7 +19,10 @@ func unlogged(tableNames ...string) (err error) {
 }
 
 func getTableName(model interface{}) (tableName string) {
-	return DB.NewScope(model).GetModelStruct().TableName(DB)
+	//return DB.NewScope(model).GetModelStruct().TableName(DB)
+	stmt := &gorm.Statement{DB: DB}
+	stmt.Parse(&model)
+	return stmt.Schema.Table
 }
 
 // SetUnlogged 将表设置为unlogged类型, 用于缓存

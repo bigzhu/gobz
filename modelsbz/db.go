@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/bigzhu/gobz/confbz"
-	"github.com/jinzhu/gorm"
+	"gobz/confbz"
+
+	"gorm.io/gorm"
 
 	// 必须导入
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"gorm.io/driver/postgres"
 )
 
 // DB db connect
@@ -99,7 +100,7 @@ func GetTx() *TX {
 //GetDB connect to postgresql
 func GetDB() (*gorm.DB, error) {
 	dbConf := confbz.GetDBConf()
-	str := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", dbConf.Host, dbConf.Port, dbConf.User, dbConf.DBName, dbConf.Password)
-	DB, err := gorm.Open("postgres", str)
+	dsn := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", dbConf.Host, dbConf.Port, dbConf.User, dbConf.DBName, dbConf.Password)
+	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	return DB, err
 }

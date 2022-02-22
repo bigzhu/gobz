@@ -5,10 +5,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/bigzhu/gobz/httpbz"
-	"github.com/bigzhu/gobz/modelsbz"
-	"github.com/bigzhu/gobz/telegram"
-	"github.com/jinzhu/gorm"
+	"gobz/httpbz"
+	"gobz/modelsbz"
+	"gobz/telegram"
+	"gorm.io/gorm"
 	"github.com/pkg/errors"
 )
 

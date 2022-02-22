@@ -3,7 +3,7 @@ package callbackbz
 import (
 	"time"
 
-	"github.com/bigzhu/gobz/modelsbz"
+	"gobz/modelsbz"
 )
 
 // CallbackModel 记录 callback 状态

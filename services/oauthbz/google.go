@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/bigzhu/gobz/httpbz"
-	"github.com/bigzhu/gobz/modelsbz"
+	"gobz/httpbz"
+	"gobz/modelsbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"

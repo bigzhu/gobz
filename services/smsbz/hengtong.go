@@ -4,8 +4,8 @@ import (
 	"encoding/base64"
 	"net/url"
 
-	"github.com/bigzhu/gobz/confbz"
-	"github.com/bigzhu/gobz/httpbz"
+	"gobz/confbz"
+	"gobz/httpbz"
 )
 
 // Send 发送消息

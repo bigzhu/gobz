@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/bigzhu/gobz/apibz"
-	"github.com/bigzhu/gobz/httpbz"
-	"github.com/bigzhu/gobz/modelsbz"
+	"gobz/apibz"
+	"gobz/httpbz"
+	"gobz/modelsbz"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/github"

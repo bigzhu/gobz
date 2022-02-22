@@ -3,7 +3,7 @@ package ginbz
 import (
 	"net/http"
 
-	"github.com/bigzhu/gobz/modelsbz"
+	"gobz/modelsbz"
 	"github.com/gin-gonic/gin"
 )
 
