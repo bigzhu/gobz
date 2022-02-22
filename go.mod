@@ -1,4 +1,4 @@
-module gobz
+module github.com/bigzhu/gobz
 
 go 1.16
 
