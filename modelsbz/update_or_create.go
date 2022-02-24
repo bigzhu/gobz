@@ -2,6 +2,7 @@ package modelsbz
 
 import (
 	"errors"
+	"log"
 
 	"gorm.io/gorm"
 )
@@ -19,6 +20,7 @@ func UpdateOrCreate(where interface{}, o interface{}) (exists bool, err error) {
 	} else {
 		exists = true
 		err = DB.Model(o).Where(where).Updates(o).Error
+		log.Printf("UpdateOrCreate update err=" + err.Error())
 	}
 	return
 }
