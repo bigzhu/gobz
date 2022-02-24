@@ -18,6 +18,7 @@ func UpdateOrCreate(where interface{}, o interface{}) (exists bool, err error) {
 		}
 	} else {
 		exists = true
+		err = DB.Model(o).Where(where).Updates(o).Error
 	}
 	return
 }
